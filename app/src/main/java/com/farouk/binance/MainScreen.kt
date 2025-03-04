@@ -34,6 +34,9 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import com.farouk.binance.domain.model.CustomDrawerState
 import com.farouk.binance.domain.model.NavigationItem
 import com.farouk.binance.domain.model.isOpened
@@ -43,7 +46,7 @@ import com.farouk.binance.util.coloredShadow
 import kotlin.math.roundToInt
 
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavHostController) {
     var drawerState by remember { mutableStateOf(CustomDrawerState.Closed) }
     var selectedNavigationItem by remember { mutableStateOf(NavigationItem.Home) }
 
@@ -79,6 +82,7 @@ fun MainScreen() {
             selectedNavigationItem = selectedNavigationItem,
             onNavigationItemClick = {
                 selectedNavigationItem = it
+                navController.navigate(it.name)
             },
             onCloseClick = { drawerState = CustomDrawerState.Closed }
         )
@@ -93,17 +97,19 @@ fun MainScreen() {
                 ),
             drawerState = drawerState,
             onDrawerClick = { drawerState = it },
+            navController = navController
         )
     }
 }
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainContent(
     modifier: Modifier = Modifier,
     drawerState: CustomDrawerState,
-    onDrawerClick: (CustomDrawerState) -> Unit
+    onDrawerClick: (CustomDrawerState) -> Unit,
+    navController: NavHostController
 ) {
     Scaffold(
         modifier = modifier
@@ -112,7 +118,7 @@ fun MainContent(
             },
         topBar = {
             TopAppBar(
-                title = { Text(text = "Home") },
+                title = { Text(text = "Navigation App") },
                 navigationIcon = {
                     IconButton(onClick = { onDrawerClick(drawerState.opposite()) }) {
                         Icon(
@@ -124,15 +130,39 @@ fun MainContent(
             )
         }
     ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "Home",
-                fontSize = MaterialTheme.typography.titleMedium.fontSize,
-                fontWeight = FontWeight.Medium
-            )
+        NavHost(navController = navController, startDestination = NavigationItem.Home.name) {
+            composable(route = NavigationItem.Home.name) { HomeScreen() }
+            composable(route = NavigationItem.Profile.name) { ProfileScreen() }
+            composable(route = NavigationItem.Premium.name) { PremiumScreen() }
+            composable(route = NavigationItem.Settings.name) { SettingsScreen() }
         }
+    }
+}
+
+@Composable
+fun HomeScreen() {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Text("Home", fontSize = MaterialTheme.typography.titleMedium.fontSize)
+    }
+}
+
+@Composable
+fun ProfileScreen() {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Text("Profile", fontSize = MaterialTheme.typography.titleMedium.fontSize)
+    }
+}
+
+@Composable
+fun PremiumScreen() {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Text("Premium", fontSize = MaterialTheme.typography.titleMedium.fontSize)
+    }
+}
+
+@Composable
+fun SettingsScreen() {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Text("Settings", fontSize = MaterialTheme.typography.titleMedium.fontSize)
     }
 }
