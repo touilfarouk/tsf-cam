@@ -8,9 +8,10 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.compose.rememberNavController
 import com.farouk.binance.ui.theme.CustomDrawerTheme
 import com.farouk.binance.ui.theme.blue
+import dagger.hilt.android.AndroidEntryPoint
 
 
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
