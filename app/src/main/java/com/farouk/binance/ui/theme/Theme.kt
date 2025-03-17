@@ -45,6 +45,38 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1B2A41)  // Dark Blue
 )
 
+// Binance themes
+/*
+private val DarkColorScheme = darkColorScheme(
+    primary = Color(0xFFF3BA2F), // Binance Yellow
+    secondary = Color(0xFF181A20), // Binance Dark Gray
+    tertiary = Color(0xFF1E2329), // Binance Slightly Lighter Gray
+
+    background = Color(0xFF0B0E11),  // Binance Black
+    surface = Color(0xFF181A20),  // Binance Dark Gray
+    onPrimary = Color.Black,
+    onSecondary = Color.White,
+    onTertiary = Color.White,
+    onBackground = Color(0xFFDCE3E9),  // Light Blue-Gray
+    onSurface = Color(0xFFC5D1E0)  // Soft Cool Gray-Blue
+)
+
+private val LightColorScheme = lightColorScheme(
+    primary = Color(0xFFF3BA2F), // Binance Yellow
+    secondary = Color(0xFFFAFAFA), // Light Gray
+    tertiary = Color(0xFFEAECEF), // Soft Gray
+
+    background = Color(0xFFFFFFFF),  // White
+    surface = Color(0xFFF5F7FA),  // Light Gray
+    onPrimary = Color.Black,
+    onSecondary = Color.Black,
+    onTertiary = Color.Black,
+    onBackground = Color(0xFF0B0E11),  // Binance Black
+    onSurface = Color(0xFF181A20)  // Binance Dark Gray
+)
+*/
+
+
 @Composable
 fun CustomDrawerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
