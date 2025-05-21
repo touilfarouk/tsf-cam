@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
-
+// curl -X GET "https://onta.dz/api/deliverers/reg1/New%20Supplier?page=2&per_page=2"
 @InstallIn(SingletonComponent::class)
 @Module
 object DelivererModule {
@@ -17,7 +17,7 @@ object DelivererModule {
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://105.97.88.111/")
+            .baseUrl("https://onta.dz/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
