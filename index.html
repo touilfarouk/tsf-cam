@@ -1,30 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Détection d'objets multiples à l'aide d'un modèle pré-entraîné dans TensorFlow.js</title>
-    <meta charset="utf-8">
-    <!-- Import the webpage's stylesheet -->
-    <link rel="stylesheet" href="style.css">
-  </head>  
-  <body>
-    <h1>Détection d'objets multiples à l'aide d'un modèle pré-entraîné dans TensorFlow.js </h1>
+<head>
+  <title>Détection d'objets multiples à l'aide d'un modèle pré-entraîné dans TensorFlow.js</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 10px;
+    }
 
-    <section id="demos" class="invisible">
+    h1 {
+      font-size: 1.4rem;
+    }
 
-      <p>Tenez quelques objets près de votre webcam pour obtenir une classification en temps réel ! Lorsque vous êtes prêt, cliquez sur "activer la webcam" ci-dessous et acceptez l'accès à la webcam lorsque le navigateur vous le demande (vérifiez en haut à gauche de votre fenêtre)</p>
-      
-      <div id="liveView" class="camView">
-        <button id="webcamButton">Enable Webcam</button>
-        <video id="webcam" autoplay width="480" height="640"></video>
-      </div>
-    </section>
+    #liveView {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      margin: auto;
+    }
 
-    <!-- Import TensorFlow.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js" type="text/javascript"></script>
-    <!-- Chargez le modèle coco-ssd à utiliser pour reconnaître les choses dans les images-->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
-    
-    <!-- Import the page's JavaScript to do some stuff -->
-    <script src="script.js" defer></script>
-  </body>
+    video#webcam {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .highlighter {
+      border: 2px solid red;
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+
+    button#webcamButton {
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .removed {
+      display: none;
+    }
+
+    .invisible {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Détection d'objets multiples à l'aide d'un modèle pré-entraîné dans TensorFlow.js</h1>
+
+  <section id="demos" class="invisible">
+    <p>
+      Tenez quelques objets près de votre webcam pour obtenir une classification en temps réel !
+      Cliquez sur "activer la webcam" ci-dessous et acceptez l'accès à la webcam.
+    </p>
+
+    <div id="liveView" class="camView">
+      <button id="webcamButton">Activer la Webcam</button>
+      <video id="webcam" autoplay playsinline muted></video>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  <script src="script.js" defer></script>
+</body>
 </html>
