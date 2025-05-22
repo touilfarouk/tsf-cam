@@ -28,7 +28,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
 # Networking
-paging-runtime = { module = "androidx.paging:paging-runtime", version = "3.3.0" }
+paging-runtime = { module = "androidx.paging:paging-runtime", version = "3.3.6" }
 paging-compose = { module = "androidx.paging:paging-compose", version = "3.3.0" }
 #networking
 retrofit = { module = "com.squareup.retrofit2:retrofit", version = "2.9.0" }

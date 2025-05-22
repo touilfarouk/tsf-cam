@@ -2,6 +2,7 @@ package com.farouk.binance.data.di
 
 import com.farouk.binance.data.local.AppDatabase
 import com.farouk.binance.data.local.DelivererDao
+import com.farouk.binance.data.local.RemoteKeyDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,5 +26,11 @@ object DelivererModule {
     @Provides
     fun provideDelivererDao(appDatabase: AppDatabase): DelivererDao {
         return appDatabase.delivererDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideRemoteKeyDao(appDatabase: AppDatabase): RemoteKeyDao {
+        return appDatabase.getRemoteKeyDao()
     }
 }
