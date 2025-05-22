@@ -21,27 +21,28 @@ if (getUserMediaSupported()) {
 
 // Activez la vue webcam en direct et lancez la classification.
 function enableCam(event) {
-  // Ne continuez que si le COCO-SSD a fini de se charger.
-  if (!model) {
-    return;
-  }
+  if (!model) return;
 
-  //Cachez le bouton une fois cliqué.
   event.target.classList.add("removed");
 
-  // paramètres getUsermedia pour forcer la vidéo mais pas l'audio.
- const constraints = {
-  video: {
-    facingMode: { exact: "environment" }
-  }
-};
+  const constraints = {
+    video: {
+      facingMode: { ideal: "environment" } // Prefer back camera
+    },
+    audio: false
+  };
 
-  // Activez le flux de la webcam.
-  navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-    video.srcObject = stream;
-    video.addEventListener("loadeddata", predictWebcam);
-  });
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then(function (stream) {
+      video.srcObject = stream;
+      video.addEventListener("loadeddata", predictWebcam);
+    })
+    .catch(function (err) {
+      console.error("Error accessing camera:", err);
+      alert("Impossible d'accéder à la caméra arrière.");
+    });
 }
+
 
 var children = [];
 
