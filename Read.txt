@@ -1,0 +1,14 @@
+https://www.mygreatlearning.com/blog/object-detection-using-tensorflow/#sh1
+
+Détection d'objets en temps réel à l'aide de TensorFlow
+    Qu'est-ce que la détection d'objets ?
+    Comment fonctionne la détection d'objets ?
+    Qu'est-ce que Tensorflow ?
+    Qu'est-ce que l'API de détection d'objets Tensorflow ?
+    Détection d'objets à l'aide de Tensorflow
+    Détection d'objets en temps réel à l'aide de Tensorflow
+
+    
+    Qu'est-ce que la détection d'objets ?
+    La détection d'objets est une technique de vision oculaire  en quelque sort par ordinateur dans laquelle un système logiciel peut détecter, identifier et classifier l'objet à partir dans une image ou une vidéo.
+
