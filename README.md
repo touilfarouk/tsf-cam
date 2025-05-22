@@ -1,16 +1,18 @@
-# Mobile Detection
-Détection d'objets multiples à l'aide d'un modèle pré-entraîné dans TensorFlow.js
+# 📱 Mobile Detection
 
-## Preview
- Tenez quelques objets près de votre webcam pour obtenir une classification en temps réel !
-      Cliquez sur "activer la webcam" ci-dessous et acceptez l'accès à la webcam.
+**Détection d'objets multiples à l'aide d'un modèle pré-entraîné dans TensorFlow.js**
 
-      
-|Level Mobile  1 | Level Mobile  2 | Level Mobile  3 |
-|--------------------------|--------------------------|--------------------------|--------------------------|
-| <img src="assets/mobile-background-1.jpg" width="220"  style="max-width: 100%;"> | <img src="assets/mobile-background-2.jpg" width="220"  style="max-width: 100%;"> | <img src="assets/mobile-background-3.jpg" width="220"  style="max-width: 100%;"> |
+## 🔍 Aperçu
 
+Tenez quelques objets près de votre webcam pour obtenir une classification en temps réel !  
+Cliquez sur **"Activer la webcam"** ci-dessous et acceptez l'accès à la webcam lorsque votre navigateur le demande.
 
+## 📷 Aperçu Mobile
 
-## License
-This project is licensed under the MIT License.
+| Niveau Mobile 1 | Niveau Mobile 2 | Niveau Mobile 3 |
+|------------------|------------------|------------------|
+| <img src="assets/mobile-background-1.jpg" width="220" style="max-width: 100%;"> | <img src="assets/mobile-background-2.jpg" width="220" style="max-width: 100%;"> | <img src="assets/mobile-background-3.jpg" width="220" style="max-width: 100%;"> |
+
+## 📝 Licence
+
+Ce projet est sous licence **MIT**.
